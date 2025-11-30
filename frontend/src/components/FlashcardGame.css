@@ -1,0 +1,345 @@
+.flashcard-container {
+  display: block;
+  perspective: 2000px;
+  width: 100%;
+  height: 250px;
+  margin: 0;
+  cursor: pointer;
+  background: var(--bg-secondary);
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  background: transparent;
+}
+
+.flashcard.is-flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--text-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: 0.3px;
+  min-height: 250px;
+}
+
+.flashcard-face:hover {
+  box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.flashcard-face.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #0078C8 0%, #005fa3 100%);
+  border-color: #0078C8;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flashcard-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 600px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.flashcard-card:hover {
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transform: translateY(-2px);
+  border-color: #0078C8;
+}
+
+.flashcard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.flashcard-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.flashcard-answer {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 0.5rem;
+  border-left: 4px solid #0078C8;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.flashcard-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.flashcard-folder {
+  background: linear-gradient(135deg, #0078C8 0%, #005fa3 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.flashcard-date {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Delete button hover effect */
+.cardWrapper:hover .deleteButton {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.deleteButton:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Folder management styles */
+.folder-container {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.folder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.folder-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.folder-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.folder-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.folder-button:hover {
+  border-color: #0078C8;
+  background: #0078C8;
+  color: white;
+}
+
+.folder-button.danger:hover {
+  border-color: #ef4444;
+  background: #ef4444;
+}
+
+/* Global button styling improvements */
+[data-theme="dark"] button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 120, 200, 0.2);
+}
+
+[data-theme="dark"] button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Ensure disabled buttons have proper styling */
+[data-theme="dark"] button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Light theme button improvements */
+[data-theme="light"] button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 120, 200, 0.15);
+}
+
+[data-theme="light"] button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Add spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Improve button hover effects */
+@keyframes buttonHoverGlow {
+  0% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 6px 16px rgba(0, 120, 200, 0.3);
+  }
+}
+
+/* Smooth focus transitions for accessibility */
+@keyframes focusRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 120, 200, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(0, 120, 200, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 120, 200, 0);
+  }
+}
+
+button:focus-visible {
+  animation: focusRing 0.6s;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .flashcard-container {
+    height: 180px;
+  }
+  
+  .flashcard-inner {
+    height: 180px;
+  }
+  
+  .flashcard-face {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+  
+  .flashcard-row {
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .flashcard-container {
+    height: 180px;
+  }
+  
+  .flashcard-inner {
+    height: 180px;
+  }
+  
+  .flashcard-face {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+  
+  .flashcard-row {
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .flashcard-container {
+    height: 160px;
+  }
+  
+  .flashcard-inner {
+    height: 160px;
+  }
+  
+  .flashcard-face {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ac22956a-5c41-491a-af9b-9a202afb341b",
+    "question": "hi",
+    "answer": "hello",
+    "createdAt": "2025-10-21T00:37:10.875Z",
+    "updatedAt": null
+  },
+  {
+    "id": "c9f9ae13-9de1-4a86-94a0-f2761ea784b3",
+    "question": "awesoem",
+    "answer": "dceodoeo",
+    "createdAt": "2025-10-21T00:44:19.190Z",
+    "updatedAt": null
+  },
+  {
+    "id": "2535b7a9-dc26-4df0-bd3c-96e20f50f184",
+    "question": "What is the capital of France?",
+    "answer": "Paris",
+    "userId": "test-user-123",
+    "createdAt": "2025-10-22T22:19:24.413Z",
+    "updatedAt": null
+  },
+  {
+    "id": "90af4ecd-9d1a-4051-9263-2d03a66298e4",
+    "question": "hi",
+    "answer": "adhisweurgevbckhf",
+    "userId": "M35kuNgN9Mez9mTEjY2RtUgCQzY2",
+    "createdAt": "2025-10-22T22:19:45.069Z",
+    "updatedAt": "2025-10-23T07:06:43.814Z",
+    "folder": "ur mom"
+  },
+  {
+    "id": "d0386be6-d97d-4964-903e-4180fcb3c85d",
+    "question": "sd",
+    "answer": "dsdssdf",
+    "userId": "M35kuNgN9Mez9mTEjY2RtUgCQzY2",
+    "createdAt": "2025-10-22T22:19:47.620Z",
+    "updatedAt": "2025-10-23T07:06:59.158Z",
+    "folder": "bob"
+  },
+  {
+    "id": "2ca0dc0a-cdb1-49b1-b3c0-a3984637f2df",
+    "question": "sfdfd",
+    "answer": "ffsdfsdf",
+    "userId": "M35kuNgN9Mez9mTEjY2RtUgCQzY2",
+    "createdAt": "2025-10-22T22:19:51.561Z",
+    "updatedAt": "2025-10-23T07:07:03.109Z",
+    "folder": "bob"
+  },
+  {
+    "id": "957e07fa-4f18-4cd0-9ab0-49847e936dcb",
+    "question": "What is 2+2?",
+    "answer": "4",
+    "userId": "test-user-123",
+    "createdAt": "2025-10-22T22:21:31.071Z",
+    "updatedAt": null
+  },
+  {
+    "id": "cab88490-9975-4e77-bd62-db3e42e5afe3",
+    "question": "What is photosynthesis?",
+    "answer": "The process by which plants convert sunlight into energy",
+    "userId": "test-user-123",
+    "createdAt": "2025-10-23T07:04:04.425Z",
+    "updatedAt": null
+  },
+  {
+    "id": "8e5122f2-4360-4887-bc63-ccf2b176a64a",
+    "question": "What is mitosis?",
+    "answer": "Cell division process",
+    "userId": "test-user-123",
+    "folder": "Biology",
+    "createdAt": "2025-10-23T07:04:49.604Z",
+    "updatedAt": null
+  },
+  {
+    "id": "ba0d97ed-3928-4a83-87d2-b5275a417dba",
+    "question": "juxtapoition",
+    "answer": "putting two different topics that contradict each other in comparison",
+    "userId": "kynxmkbp7FUFG8NjlHg9hmisFFl1",
+    "folder": "ap lang",
+    "createdAt": "2025-10-25T00:50:08.778Z",
+    "updatedAt": "2025-10-26T17:48:45.132Z"
+  },
+  {
+    "id": "dcf022d3-1fe6-4621-a410-1eb797141fcd",
+    "question": "hypophora",
+    "answer": "a rhetorical question that is answered by author",
+    "userId": "kynxmkbp7FUFG8NjlHg9hmisFFl1",
+    "folder": "ap lang",
+    "createdAt": "2025-10-25T00:51:59.136Z",
+    "updatedAt": "2025-10-25T00:52:08.152Z"
+  },
+  {
+    "id": "9e3aad35-8a73-41a0-b657-9599ad3e53e0",
+    "question": "h",
+    "answer": "hui",
+    "userId": "kynxmkbp7FUFG8NjlHg9hmisFFl1",
+    "folder": null,
+    "createdAt": "2025-10-25T00:54:45.387Z",
+    "updatedAt": null
+  },
+  {
+    "id": "0271b445-5857-44c9-a3f8-50d9302a561d",
+    "question": "boi",
+    "answer": "boiboi",
+    "userId": "kynxmkbp7FUFG8NjlHg9hmisFFl1",
+    "folder": "cornball",
+    "createdAt": "2025-10-26T17:57:16.135Z",
+    "updatedAt": "2025-10-26T17:57:26.480Z"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "high5",
+  "version": "1.0.0",
+  "description": "High5 - AP Exam Preparation Platform",
+  "dependencies": {
+    "react-router-dom": "^7.9.4"
+  }
+}
