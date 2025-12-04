@@ -20,7 +20,7 @@ app.use(cors({
     "http://localhost:5175",
     "http://localhost:5176",
     // Your deployed frontend domain:
-    "https://your-frontend.vercel.app"
+    "https://high5-one.vercel.app/"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
