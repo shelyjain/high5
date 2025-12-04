@@ -32,7 +32,7 @@ const PracticeTest = ({ userProfile }) => {
     
     try {
       // Get exam format
-      const formatResponse = await fetch(`http://localhost:5001/api/practice-test/format/${courseId}`);
+      const formatResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/practice-test/format/${courseId}`);
       if (!formatResponse.ok) {
         const errorData = await formatResponse.json().catch(() => ({}));
         if (errorData.hasTraditionalExam === false) {
@@ -55,7 +55,7 @@ const PracticeTest = ({ userProfile }) => {
       setExamFormat(format);
 
       // Generate practice test
-      const testResponse = await fetch(`http://localhost:5001/api/practice-test/generate/${courseId}`, {
+      const testResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/practice-test/generate/${courseId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ const PracticeTest = ({ userProfile }) => {
           } else {
             // Grade using AI with CED rubric
             try {
-              const gradeResponse = await fetch(`http://localhost:5001/api/practice-test/grade-frq/${courseId}`, {
+              const gradeResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/practice-test/grade-frq/${courseId}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -12,9 +12,16 @@ import { initializeCedParsing } from "./services/cedParser.js";
 dotenv.config();
 const app = express();
 
-// Allow requests from your frontend only
+// CORS — IMPORTANT: Allow Vercel frontend URL
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176"], // frontend URLs
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    "http://localhost:5176",
+    // Your deployed frontend domain:
+    "https://your-frontend.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -26,7 +33,7 @@ app.get("/", (req, res) => {
   res.send("High5 backend is running 👑");
 });
 
-// Mount question routes
+// API routes
 app.use("/api/questions", questionRoutes);
 app.use("/api/frq", frqRoutes);
 app.use("/api/community", communityRoutes);
@@ -34,25 +41,33 @@ app.use("/api/study-plan", studyPlanRoutes);
 app.use("/api/practice-test", practiceTestRoutes);
 app.use("/api/flashcards", flashcardRoutes);
 
-// Initialize CED parsing on startup
-async function startServer() {
+/* 
+  IMPORTANT FOR VERCEL:
+  Serverless functions cannot run heavy startup tasks every request.
+  So we run initializeCedParsing() ONLY in local development.
+*/
+
+// Local development only
+async function startLocalServer() {
   try {
-    console.log("Starting High5 backend server...");
-    
-    // Initialize CED parsing
+    console.log("Starting High5 backend locally...");
+
     await initializeCedParsing();
-    
+
     const PORT = process.env.PORT || 5001;
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📚 CED parsing completed`);
-      console.log(`🔗 API endpoints available at http://localhost:${PORT}/api/questions`);
+      console.log(`🚀 Server running locally on port ${PORT}`);
     });
   } catch (error) {
-    console.error("Failed to start server:", error);
+    console.error("Error starting local server:", error);
     process.exit(1);
   }
 }
 
-// Start the server
-startServer();
+// Only start server if running "node server.js"
+if (process.env.VERCEL !== "1") {
+  startLocalServer();
+}
+
+// Export for Vercel serverless function
+export default app;

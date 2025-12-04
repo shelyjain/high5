@@ -253,7 +253,7 @@ export default function StudyCalendar() {
     try {
       // Test backend connectivity first
       try {
-        const testResponse = await fetch('http://localhost:5001/api/study-plan/health');
+        const testResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/study-plan/health`);
         const testData = await testResponse.json();
         console.log('Backend connectivity test:', testData);
       } catch (testError) {
@@ -470,7 +470,7 @@ export default function StudyCalendar() {
     try {
       // Test backend connectivity first
       try {
-        const testResponse = await fetch('http://localhost:5001/api/study-plan/health');
+        const testResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/study-plan/health`);
         const testData = await testResponse.json();
         console.log('Backend connectivity test:', testData);
       } catch (testError) {

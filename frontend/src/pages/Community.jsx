@@ -86,7 +86,7 @@ export default function Community({ userProfile }) {
     if (courseId) {
       setIsLoading(true);
       // Get units for the selected course
-      fetch(`http://localhost:5001/api/questions/units/${courseId}`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/questions/units/${courseId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -141,7 +141,7 @@ export default function Community({ userProfile }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/community/ask', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/community/ask`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
