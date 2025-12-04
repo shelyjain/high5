@@ -1,5 +1,7 @@
 // frontend/src/utils/api.js
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+// Ensure API_URL is never undefined to prevent "undefined/api/..." in URLs
+// Use environment variable or fallback to empty string (will need to be set in production)
+export const API_URL = import.meta.env.VITE_API_URL ?? '';
 
 export async function getTestMessage() {
   const res = await fetch(`${API_URL}/`); // <-- note the /
