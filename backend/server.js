@@ -1,6 +1,8 @@
+// server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+
 import questionRoutes from "./routes/questionRoutes.js";
 import frqRoutes from "./routes/frqRoutes.js";
 import communityRoutes from "./routes/communityRoutes.js";
@@ -12,23 +14,27 @@ import { initializeCedParsing } from "./services/cedParser.js";
 dotenv.config();
 const app = express();
 
-// CORS — IMPORTANT: Allow Vercel frontend URL
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://localhost:5175",
-    "http://localhost:5176",
-    // Your deployed frontend domain:
-    "https://high5-one.vercel.app/"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+// ----------------------
+// CORS (FINAL VERSION)
+// ----------------------
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+      "http://localhost:5176",
+      "https://high5-one.vercel.app",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
+// JSON parsing
 app.use(express.json({ limit: "10mb" }));
 
-// Simple test route
+// Root test route
 app.get("/", (req, res) => {
   res.send("High5 backend is running 👑");
 });
@@ -41,13 +47,9 @@ app.use("/api/study-plan", studyPlanRoutes);
 app.use("/api/practice-test", practiceTestRoutes);
 app.use("/api/flashcards", flashcardRoutes);
 
-/* 
-  IMPORTANT FOR VERCEL:
-  Serverless functions cannot run heavy startup tasks every request.
-  So we run initializeCedParsing() ONLY in local development.
-*/
-
-// Local development only
+// ----------------------
+// LOCAL DEVELOPMENT ONLY
+// ----------------------
 async function startLocalServer() {
   try {
     console.log("Starting High5 backend locally...");
@@ -64,10 +66,10 @@ async function startLocalServer() {
   }
 }
 
-// Only start server if running "node server.js"
+// Do NOT start server when deployed on Vercel (serverless)
 if (process.env.VERCEL !== "1") {
   startLocalServer();
 }
 
-// Export for Vercel serverless function
+// Export for serverless deployment
 export default app;

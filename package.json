@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "High5 - AP Exam Preparation Platform",
   "dependencies": {
+    "cors": "^2.8.5",
     "react-router-dom": "^7.9.4"
   }
 }
